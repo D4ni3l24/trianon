@@ -17,6 +17,7 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 main{
     flex: 1;
@@ -45,6 +46,10 @@ nav ul{
     gap: 20px;
     width: 100%;
 }
+nav li{     
+    animation: fromright 0.4s ease-out forwards; 
+    opacity: 0;
+}
 nav a{
     color: var(--main-color);
     text-decoration: none;
@@ -59,9 +64,25 @@ nav a::after{
     height: 2px;
     bottom: -5px;
     background-color: var(--main-color);
-    transition: .67s;
+    transition: .41s;
 }
 nav a:hover::after{width: 100%;}
+
+.nav-menu li:nth-child(1){animation-delay: 0.05s;}
+.nav-menu li:nth-child(2){animation-delay: 0.1s;}
+.nav-menu li:nth-child(3){animation-delay: 0.25s;}
+.nav-menu li:nth-child(4){animation-delay: 0.2s;}
+
+@keyframes fromright{
+    0%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 ul{list-style: none;}
 header{
     background-color: var(--header-bg-clr);
